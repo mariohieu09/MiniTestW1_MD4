@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/newsLayou :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/news}">Back to news list</a>
+<br>
+<div id="form">
+    <form th:action="@{/news/save}" th:object="${news}" method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Title</label>
+            <input type="text" th:field="*{title}">
+        </div>
+        <div>
+            <label>Content</label>
+            <textarea th:field="*{content}" maxlength="1000"></textarea>
+        </div>
+        <input type="submit" value="Save">
+    </form>
+</div>
+
+
+</body>
+</html>

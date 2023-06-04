@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/newsLayou :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/news}">Back to news list</a>
+<fieldset>
+  <legend><h1  th:text="${news.getTitle()}"></h1></legend>
+    <p th:text="${news.getContent()}"></p>
+</fieldset>
+<h2>Created: <span th:text="${news.getCreate_date()}"></span></h2>
+
+
+</body>
+</html>

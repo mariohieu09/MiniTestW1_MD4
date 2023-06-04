@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/newsLayou :: head">
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<a th:href="@{/news/create}">Create News</a>
+<table id="news">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Create date</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>View</th>
+  </tr>
+  <tr th:each="news,newsStat : ${list}">
+    <td th:text="${news.getId()}"></td>
+    <td th:text="${news.getTitle()}"></td>
+    <td th:text="${news.getCreate_date()}"></td>
+    <td><a th:href="@{/news/{id}/edit(id=${news.getId()})}">Edit</a></td>
+    <td><a th:href="@{/news/{id}/delete(id=${news.getId()})}">Delete</a></td>
+    <td><a th:href="@{/news/{id}/view(id=${news.getId()})}">View</a></td>
+  </tr>
+</table>
+</body>
+</html>

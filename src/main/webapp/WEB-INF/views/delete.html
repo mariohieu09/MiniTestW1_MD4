@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/newsLayou :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<p th:text="${popo.getContent()}"></p>-->
+<a th:href="@{/news}">Back to news list</a>
+<form th:action="@{/news/remove}" th:object="${popo}" id="form" method="POST">
+  <input type="hidden" th:field="*{id}">
+  <h2 th:text="${popo.getTitle()}"></h2>
+  <p th:text="${popo.getContent()}"></p>
+  <h2>Create date: <span th:text="${popo.getCreate_date()}"></span></h2>
+  <input type="submit" value="Delete">
+</form>
+
+</body>
+</html>
